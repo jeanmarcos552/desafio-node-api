@@ -3,10 +3,10 @@ import { json } from './middlewares/json.js';
 import { routes } from './routes.js';
 import { extractQueryParam } from './utils/extract-query-param.js';
 
-const server = http.createServer((req, res) => {
-  const { url, method } = req;
+const server = http.createServer(async (req, res) => {
+  const { method, url } = req;
 
-  json(req, res);
+  await json(req, res); // midllewares
 
   const currentRoute = routes.find((route) => {
     return route.method === method && route.path.test(url);
