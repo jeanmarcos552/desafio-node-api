@@ -17,7 +17,7 @@ export const routes = [
         title,
         description,
         completed_at: null,
-        created_at: format(new Date(), 'yyyy-MM-dd HH:mm:ss.SSS'),
+        created_at: new Date(),
         updated_at: null,
       };
 
@@ -53,7 +53,7 @@ export const routes = [
       database.update('tasks', id, {
         title,
         description,
-        updated_at: format(new Date(), 'yyyy-MM-dd HH:mm:ss.SSS'),
+        updated_at: new Date(),
       });
 
       return res.writeHead(204).end();
@@ -76,7 +76,7 @@ export const routes = [
       // const { completed_at } = req.body;
 
       database.update('tasks', id, {
-        completed_at: format(new Date(), 'yyyy-MM-dd HH:mm:ss.SSS'),
+        completed_at: new Date(),
       });
 
       return res.writeHead(204).end();
